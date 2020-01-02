@@ -38,6 +38,7 @@ macro_rules! serialize_internal {
         impl Serializable for $name {
             fn serialize(&self) -> Result<String, ()> {
                 let mut result = String::from("{");
+                result.push_str(&format!("\"{}\":", stringify!($name)));
                 self.serialize_fields(&mut result);
                 result.push_str("}");
 
