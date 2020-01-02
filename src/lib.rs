@@ -55,24 +55,28 @@ macro_rules! serialize_internal {
     }
 }
 
-// Sample struct for serialize
-serializable!(
-    pub struct Person {
-        name: String,
-        age: u8,
-    }
-);
-
 pub trait Serializable {
     fn serialize(&self) -> Result<String, ()>;
     fn serialize_fields(&self, outer: &mut String);
 }
 
-impl Person {
-    pub fn new(name: String, age: u8) -> Self {
-        Self {
-            name: name,
-            age: age,
+#[cfg(test)]
+mod tests {
+    use super::Serializable;
+
+    serializable! {
+        struct TestPerson {
+            name: String,
+            age: u8,
         }
+    }
+
+    #[test]
+    fn test() {
+        let person = TestPerson { name: "Witcher".to_string(), age: 10 };
+
+        let serialized_person = person.serialize().unwrap();
+
+        assert_eq!(serialized_person, "{\"TestPerson\":{\"name\":\"Witcher\",\"age\":\"10\",}}");
     }
 }
