@@ -1,3 +1,4 @@
+#[macro_export]
 macro_rules! serializable {
     (
         struct $name:ident {
@@ -27,6 +28,7 @@ macro_rules! serializable {
     };
 }
 
+#[macro_export]
 macro_rules! serialize_internal {
     (
         $name:ident {
