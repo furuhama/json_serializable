@@ -17,3 +17,9 @@ let serialized = person.serialize().unwrap();
 
 assert_eq!(r#"{"Person":{"name":"Julien Sorel","age":"16",}}"#, serialized);
 ```
+
+## Test
+
+```
+$ cargo test
+```
