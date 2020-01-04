@@ -80,6 +80,6 @@ mod tests {
 
         let serialized_person = person.serialize().unwrap();
 
-        assert_eq!(serialized_person, r#"{"TestPerson":{"name":"Witcher","age":"10",}}"#);
+        assert_eq!(serialized_person, r#"{"TestPerson":{"name":"Witcher","age":"10"}}"#);
     }
 }
