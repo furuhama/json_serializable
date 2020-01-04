@@ -1,4 +1,4 @@
-## JSON Serializable(WIP)
+## JSON Serializable
 
 Simple JSON format serializer for Rust
 
@@ -15,7 +15,7 @@ serializable! {
 let person = Person { name: "Julien Sorel".to_string(), age: 16 };
 let serialized = person.serialize().unwrap();
 
-assert_eq!(r#"{"Person":{"name":"Julien Sorel","age":"16",}}"#, serialized);
+assert_eq!(r#"{"Person":{"name":"Julien Sorel","age":"16"}}"#, serialized);
 ```
 
 ## Test
