@@ -47,9 +47,11 @@ macro_rules! serialize_internal {
 
             fn serialize_fields(&self, result: &mut String) {
                 result.push_str("{");
+                let mut fields = Vec::<String>::new();
                 $(
-                    result.push_str(&format!("\"{}\":\"{}\",", stringify!($attr), self.$attr));
+                    fields.push(format!("\"{}\":\"{}\"", stringify!($attr), self.$attr));
                 )*
+                result.push_str(&fields.join(","));
                 result.push_str("}");
             }
         }
